@@ -1,0 +1,550 @@
+/* ------------------------------
+    ベース設定（高さと余白の安定化）
+------------------------------ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* ------------------------------
+    Unified Hero Section（Top以外）
+------------------------------ */
+.profile-hero,
+.works-hero,
+.skillset-hero,
+.certifications-hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: url("./images/bright-and-ethereal.jpg") center/cover no-repeat;
+}
+
+/* ヒーロー内の装飾 */
+.hero-overlay {
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(237, 231, 246, 0.35),
+    rgba(223, 243, 227, 0.35)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-name {
+  font-size: 3.5rem;
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeMove {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------
+    Works ギャラリーセクション
+------------------------------ */
+.works-gallery {
+  background: #fff;
+  padding: 6rem 2rem;
+}
+
+.intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-heading {
+  color: #b8caff;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.work-card {
+  background: #f9f9fc;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.work-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  filter: brightness(1.05) contrast(1.02);
+}
+
+.work-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.work-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.7;
+  font-family: "Noto Sans JP", system-ui, sans-serif;
+}
+
+.work-card:link .work-description,
+.work-card:visited .work-description {
+  color: #666 !important;
+}
+
+/* Latest Works のリンク色を統一（visited の紫を消す） */
+.work-card:link,
+.work-card:visited {
+  color: #333;
+}
+
+.work-card .work-description {
+  color: #333;
+}
+
+.work-card .work-description {
+  color: #333 !important;
+}
+
+/* ============================
+    GitHub リポジトリリンク（カード下配置用）
+============================ */
+.repo-link {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.repo-link a {
+  font-size: 0.9rem;
+  color: #4a7bd0;
+  text-decoration: underline;
+  font-family: "Noto Sans JP", sans-serif;
+  transition: color 0.3s ease;
+}
+
+.repo-link a:hover {
+  color: #2e5db7;
+}
+
+/* ============================
+    Certifications Hero
+============================ */
+.certifications-hero {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* ============================
+    Certifications Section
+============================ */
+.cert-list-section {
+  background: #fff;
+  padding: 6rem 2rem;
+  padding-top: 30vh;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.cert-card {
+  background: #f9f9fc;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.cert-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.cert-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ============================
+    Home Hero Section
+============================ */
+.home-hero {
+  position: relative;
+  height: 100vh;
+  background: url("./images/luminous-spiral.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-sub {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* ============================
+    Orb Navigation（大胆ランダム配置）
+============================ */
+.orb-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* オーブ以外の部分をクリック不可にしないため */
+}
+
+/* オーブ共通 */
+.orb {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.9),
+    rgba(180, 200, 255, 0.4),
+    rgba(150, 170, 255, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 0 30px rgba(180, 200, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  pointer-events: auto; /* オーブはクリック可能 */
+  animation: float-random 6s ease-in-out infinite;
+}
+
+/* ランダムゆらぎアニメーション */
+@keyframes float-random {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(
+      calc(-40px + 80px * var(--rand-x)),
+      calc(-40px + 80px * var(--rand-y))
+    );
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ============================
+    各オーブのランダム位置 + ランダムゆらぎ
+============================ */
+
+/* orb1：左上あたり */
+.orb1 {
+  top: 18%;
+  left: 12%;
+  --rand-x: -0.6;
+  --rand-y: 0.4;
+  animation-duration: 7.5s;
+}
+
+/* orb2：右上あたり */
+.orb2 {
+  top: 22%;
+  right: 10%;
+  --rand-x: 0.8;
+  --rand-y: -0.3;
+  animation-duration: 6.8s;
+}
+
+/* orb3：左下あたり */
+.orb3 {
+  bottom: 15%;
+  left: 20%;
+  --rand-x: -0.3;
+  --rand-y: -0.7;
+  animation-duration: 8.2s;
+}
+
+/* orb4：右下あたり */
+.orb4 {
+  bottom: 12%;
+  right: 18%;
+  --rand-x: 0.5;
+  --rand-y: 0.9;
+  animation-duration: 7.2s;
+}
+
+/* ============================
+    Home Works Pickup
+============================ */
+.home-works {
+  background: #fff;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  color: #b8caff;
+  margin-bottom: 3rem;
+  font-family: "Playfair Display", serif;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.work-item {
+  background: #f9f9fc;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.work-item img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.work-desc {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.7;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* ============================
+    2カラムレイアウト（共通）
+============================ */
+.two-column {
+  display: flex;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+}
+
+/* 画像やテキストが詰まらないように */
+.left-column img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ============================
+    Profile 2カラムレイアウト
+============================ */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 左右2カラム */
+  gap: 3rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 0rem;
+}
+
+.profile-photo img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.profile-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 1fr; /* 1カラムに変更 */
+    gap: 2rem;
+  }
+}
+
+/* ------------------------------
+    Responsive（768px以下）
+------------------------------ */
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 2.6rem;
+  }
+
+  .hero-title {
+    font-size: 1rem;
+  }
+
+  .works-gallery {
+    padding: 5rem 1.5rem;
+  }
+
+  .work-card {
+    padding: 1.2rem;
+    display: block;
+    cursor: pointer;
+  }
+
+  .work-title {
+    font-size: 1.1rem;
+  }
+
+  .work-description {
+    font-size: 0.9rem;
+  }
+
+  .two-column {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+/* ============================
+    Skillset リスト整形
+============================ */
+.skill-list {
+  list-style-position: outside; /* ← これがポイント！ */
+  padding-left: 1.2rem; /* ・の位置を少し右に寄せて美しく */
+  margin: 0; /* 不要な余白を消す */
+}
+
+.skill-list li {
+  margin-bottom: 0.8rem; /* 行間を統一 */
+  line-height: 1.7; /* 読みやすさを統一 */
+}
+
+/* ============================
+    Topページ Latest Works のリンク色を統一
+============================ */
+.work-link:link,
+.work-link:visited {
+  color: #333;
+}
+
+.work-link h3,
+.work-link p {
+  color: #333 !important;
+}
+
+.work-link:hover h3,
+.work-link:hover p {
+  color: #b84a4a; /* ホバー時の色（必要なければ削除OK） */
+}
+
+/* ============================
+    Topページ Latest Works のホバー演出
+============================ */
+.work-link {
+  display: block;
+  background: #f9f9fc;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.work-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background-color: #eef3ff; /* やさしい青系に変化 */
+}
+
+.work-link h3,
+.work-link p {
+  transition: color 0.3s ease;
+}
+
+.work-link:hover h3 {
+  color: #4a7bd0; /* タイトルをやさしい青に */
+}
+
+.work-link:hover p {
+  color: #5a6e99; /* 説明文も少し濃い青グレーに */
+}
